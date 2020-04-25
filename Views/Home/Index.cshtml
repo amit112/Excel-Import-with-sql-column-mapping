@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<input type="file" id="fileUpload"
+       accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+       style="display:none" />
+<button class="btn btn-primary btn-sm mb-1" onclick="$('#fileUpload').trigger('click');">Upload Excel File</button>
+<button class="btn btn-primary btn-sm mb-1 ml-1" onclick="submitExcelData()">Submit To Database</button>
+@Html.DropDownList("tableNames", (List<SelectListItem>)@ViewBag.TableNames, "--Select Sql Table--", new { @class = "form-control form-control-sm mb-1" })
+<div id="mappingGrid" style="height: 400px;width:100%;" class="ag-theme-balham"></div>
+<br />
+<div id="excelGrid" style="height: 500px;width:100%;" class="ag-theme-balham"></div>
+
+@*Scripts*@
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/xlsx/xlsx.core.min.js"></script>
+<script src="~/lib/xlsx/xls.core.min.js"></script>
+<script src="~/lib/ag-grid/ag-grid-community.min.noStyle.js"></script>
+<script src="~/js/index.js"></script>
+
